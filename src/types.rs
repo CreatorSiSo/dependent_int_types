@@ -1,6 +1,6 @@
 use crate::constants::uint_max_lut;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Int {
 	U8(u8),
 	U16(u16),

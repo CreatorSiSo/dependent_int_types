@@ -1,26 +1,29 @@
 use crate::types::Int;
 use logos::{Lexer, Logos};
 
-#[derive(Logos, Debug, PartialEq)]
+#[derive(Logos, Debug, PartialEq, Clone)]
 pub enum Token {
 	#[token("+")]
 	Plus,
 	#[token("-")]
 	Minus,
+	#[token("=")]
+	Eq,
 
 	#[regex("[0-9]+[0-9_]*", number)]
 	Number(Int),
 
 	#[token("const")]
 	Const,
-	#[regex("[_a-zA-Z]+")]
-	Ident,
+	#[regex("[_a-zA-Z]+", |s| s.slice().to_string())]
+	Ident(String),
 
 	#[token("\n")]
 	Newline,
 
 	#[error]
 	#[regex(r"[ \t\f]+", logos::skip)] // Whitespace
+	#[regex(r"[//[^\n]*\n]", priority = 100, callback = logos::skip)] // Line Comment
 	Error,
 }
 

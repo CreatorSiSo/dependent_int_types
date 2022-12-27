@@ -5,3 +5,5 @@ pub mod constants;
 pub mod lexer;
 pub mod parser;
 pub mod types;
+
+pub use parser::Parser as DepIntParser;

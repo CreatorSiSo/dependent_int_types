@@ -1,0 +1,11 @@
+const u1 = 0 // false
+const u1 = 1 // true
+
+const u2 = 2
+const u2 = 3
+
+const u3 = 7
+
+const u4 = 15
+
+const u5 = 31
