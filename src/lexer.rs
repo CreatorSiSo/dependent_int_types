@@ -1,4 +1,4 @@
-use crate::parser::Int;
+use crate::types::Int;
 use logos::{Lexer, Logos};
 
 #[derive(Logos, Debug, PartialEq)]
